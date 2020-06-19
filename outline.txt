@@ -1,0 +1,29 @@
+Profile
+    - sub_branch            \\ فرع حماة - شعبة السقيلبية - شعبة السملية - شعبة مصياف
+    - point                 \\ نص
+    - nation_num            \\ رقم فقط - ضبط طول الرقم 11
+    - name                  \\ نص
+    - father_name           \\ نص
+    - mother_name           \\ نص
+    - type_of_person        \\ ذكر Male - أنثى Female
+    - birth_pleace          \\ نص
+    - birth_date            \\ تاريخ
+    - social_status         \\ أعزب Single - متزوج Married
+    - mobile                \\ رقم فقط - ضبط 9
+    - phone                 \\ رقم فقط - ضبط 9
+    - education             \\ غير متعلم - شهادة ابتدائية - شهادة إعدادية - شهادة ثانوية - طالب جامعي - معهد - شهادة جامعية - دبلوم - ماجستير - دكتوراه
+    - education_detail      \\ نص 
+    - sarc_adjective        \\ متطوع volinteer - موظف employee
+    - position              \\ منسق فريق الإسعاف - مساعد منسق الإسعاف - منسق التدريب - منسق عمليات الإسعاف - مستشار طبي - لوجستي إسعاف - مسؤول مركز - سائق - مستخدم 
+    - volunteer_date        \\ تاريخ
+    - employment_date       \\ تاريخ
+    - blood_type            \\ A+ & A- & B+ & B- & AB+ & AB- & O+ & O-
+    - name_e                \\ نص
+    - position_e            \\ Ambulance Team Coordinator - Assistant Ambulance Coordinator - Ambulance Operations Coordinator - Training Coordinator - Center Official - Ambulance Logistic - Medical Advisor - Driver - user
+    - shoe_size             \\ رقم
+    - waist_size            \\ رقم
+    - shoulder_size         \\  Small - Midume - Large - Xlarge - XXlarge
+    - rank_in_team          \\ قائد قطاع - قائد  قطاع تحت التدريب - قائد فريق - كشاف - مسعف - مسعف تحت التدريب 
+    - advanced_date         \\ تاريخ
+    - training_position     \\ مساعد مدرب - مدرب 
+    - tot_date              \\ تاريخ
