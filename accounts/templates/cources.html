@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div dir="rtl">
+<div class="catagory_area ">
+<div class="container " style="margin-top: 6rem">
+</div>
+</div>
+
+<div class="job_details_area">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="job_details_header">
+                <div class="single_jobs white-bg d-flex justify-content-between">
+                    <div class="jobs_left d-flex align-items-center">
+                        <div class="jobs_conetent">
+                            <a href="#" ><h4>جدول الدورات المتبعة للمسعف <b>{{user.profile.name}}</b></h4></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="descript_wrap white-bg">
+                <div class="white-card white-card-inner">
+                    <div class="single_wrap">
+                        <!--start table--> 
+                        <table class="table" style="text-align:center;">
+                            <thead>
+                                <tr>
+                                <th scope="col">الدورة</th>
+                                <th scope="col">التاريخ</th>
+                                <th scope="col">مكان الدورة</th>
+                                <th scope="col">عدد الأيام</th>
+                                <th scope="col">صفة المشاركة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for cors in cor %}
+                                <tr>
+                                <th scope="row">{{cors.cource}}</th>
+                                <td>{{cors.cource_date|date:"d - m - Y"}}</td>
+                                <td>{{cors.cource_place}}</td>
+                                <td>{{cors.cource_day}}</td>
+                                <td>{{cors.adj}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            </table>
+                        <!--end table-->   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="job_sumary">
+                <div class="summery_header">
+                    <h3>إضافة دورة</h3>
+                </div>
+                <div class="job_content">
+                    <ul> 
+    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock body %}

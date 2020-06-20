@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator , ValidationError
 
 
 class Profile(models.Model):
@@ -125,7 +125,7 @@ class Profile(models.Model):
     branchs         = models.CharField(_("الفرع"), max_length=50 , choices=BRANCH , default="حماة")
     sub_branch      = models.CharField(_("الشعبة"), max_length=50 , choices=SUB)
     point           = models.CharField(_("النقطة"), max_length=50 , blank=True , null=True)
-    nation_num      = models.CharField(_("الرقم الوطني") , validators=[RegexValidator(r"[0-9].{10}$")] , max_length=11 )
+    nation_num      = models.CharField(_("الرقم الوطني") , validators=[RegexValidator(r"[0-9].{10}$")], max_length=11 )
     name            = models.CharField(_("الاسم بالعربي"), max_length=100)
     father_name     = models.CharField(_("اسم الأب"), max_length=50)
     mother_name     = models.CharField(_("اسم الأم"), max_length=50)
@@ -154,15 +154,50 @@ class Profile(models.Model):
     center          = models.CharField(_("المركز"), max_length=50 , choices=CENTER)
     image           = models.ImageField(_("الصورة الشخصية"), upload_to='profile', blank=True , null=True)
 
-
-    
-
     class Meta:
         verbose_name = _("Profile")
         verbose_name_plural = _("Profiles")
 
     def __str__(self):
         return self.name
+
+
+
+
+class Cources(models.Model):
+    cources = models.CharField(_("اسم الدورة"), max_length=50)
+    
+    class Meta:
+        verbose_name = _("Cources")
+        verbose_name_plural = _("Courcess")
+
+    def __str__(self):
+        return self.cources
+
+
+
+class Cource(models.Model):
+    ADJ = [
+        ("منسق دورة" , "منسق دورة"),
+        ("مدرب" , "مدرب"),
+        ("متدرب" , "متدرب"),
+        ("لوجستي" , "لوجستي"),
+    ]
+    user = models.ForeignKey(User, verbose_name=_("المستخدم"), on_delete=models.CASCADE)
+    cource = models.ForeignKey("Cources", verbose_name=_("الدورة"), on_delete=models.CASCADE)
+    cource_date = models.DateField(_("تاريخ الدورة"))
+    cource_place = models.CharField(_("مكان الدورة"), max_length=50)
+    cource_day = models.IntegerField(_("عدد أيام الدورة"))
+    adj = models.CharField(_("صفة المشاركة "), max_length=50 , choices= ADJ)
+        
+    class Meta:
+        verbose_name = _("Cource")
+        verbose_name_plural = _("Cources")
+
+    def __str__(self):
+        return str(self.user)
+
+
 
 
 

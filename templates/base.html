@@ -7,9 +7,8 @@
 
 
 
-    <title>Vezeta</title>
+    <title>FA Team - HR</title>
 
-    <title>Job Board</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,12 +22,15 @@
     <link rel="stylesheet" href="{% static 'static_file/css/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/themify-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'static_file/css/nice-select1.css' %}">
+    <link rel="stylesheet" href="{% static 'static_file/css/nice-select2.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/flaticon.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/gijgo.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/slicknav.css' %}">
     <link rel="stylesheet" href="{% static 'static_file/css/style.css'%}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -45,7 +47,7 @@
                     <div class="col-xl-3 col-lg-2">
                         <div class="logo" style="text-align: -webkit-auto;">
                             <a href="index.html">
-                                <img src="{% static 'images/fa.jpg' %}" alt="" style="width:80px;">
+                                <img src="{% static 'images/fa.jpg'  %}" alt="" style="width:80px;">
                             </a>
                         </div>
                     </div>
@@ -53,8 +55,12 @@
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="">الصفحه الشخصيه</a></li>|
+                                    <li><a href="{% url 'accounts:home'%}">الصفحه الشخصيه</a></li>|
+                                    {% if user.id is not None %}
+                                    <li><a href="{% url 'accounts:cources' user.id %}">الدورات التدريبية</a></li>|
+                                    {% else %}
                                     <li><a href="">الدورات التدريبية</a></li>|
+                                    {% endif %}
                                     <li><a href="">المناوبات </a></li>|
                                     <li><a href="">المكافئات</a></li>|
                                      <li><a href="">العقوبات</a></li>   
@@ -65,9 +71,17 @@
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                         <div class="Appointment">
                             {% if user.is_authenticated %}
-                                <div class="phone_num d-none d-xl-block">
-                                    <a class="boxed-btn3" href="">تسجيل خروج</a>
+                                <div class="btn-group">
+                                    <button type="button" class="boxed-btn3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-cog"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">تغيير كلمة المرور</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'accounts:logout'%}">تسجيل خروج</a>
+                                    </div>
                                 </div>
+
                             {% endif %}
                         </div>
                     </div>
@@ -103,29 +117,30 @@
                     </a>
                 </div>
                 <p>
-                    ma7mod.raouf@gmail.com <br>
-                    +01005162422 <br>
-                    Mansora, Egypt
+                    Abdulrhman Al-lbabidi <br>
+                    abdulrhman.lb2@gmail.com <br>
+                    +963958793236 <br>
+                    Hama, Syria
                 </p>
                 <div class="socail_links">
                     <ul>
                         <li>
-                            <a href="https://www.facebook.com/m7modsabra">
+                            <a href="">
                                 <i class="ti-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/channel/UC7FFcZc90vE5FfR_dgA_dVg?view_as=subscriber">
+                            <a href="">
                                 <i class="fa fa-youtube"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/Mahmod_Raouf">
+                            <a href="">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/Mahmod_Raouf">
+                            <a href="">
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </li>
@@ -139,9 +154,9 @@
                     ماذا عنا
                 </h3>
                 <ul>
-                    <li><a href="https://code4learn.teachable.com/p/online-courses">من نحن </a></li>
-                    <li><a href="https://code4learn.teachable.com/p/online-courses"> أسعارنا</a></li>
-                    <li><a href="https://www.facebook.com/m7modsabra">إستفسار</a></li>
+                    <li><a href="">من نحن </a></li>
+                    <li><a href=""> أسعارنا</a></li>
+                    <li><a href="">إستفسار</a></li>
                 </ul>
 
             </div>
@@ -152,10 +167,10 @@
                     الخدمات
                 </h3>
                 <ul>
-                    <li><a href="https://code4learn.teachable.com/p/soundcloud">اعمالنا</a></li>
-                    <li><a href="https://twitter.com/code4learn/status/1236082742582001670?s=21">شركائنا</a></li>
-                    <li><a href="https://code4learn.teachable.com/p/online-courses">الخصومات والمشاريع</a></li>
-                    <li><a href="https://www.facebook.com/m7modsabra">للإعلان</a></li>
+                    <li><a href="">اعمالنا</a></li>
+                    <li><a href="">شركائنا</a></li>
+                    <li><a href="">الخصومات والمشاريع</a></li>
+                    <li><a href="">للإعلان</a></li>
                 </ul>
             </div>
         </div>

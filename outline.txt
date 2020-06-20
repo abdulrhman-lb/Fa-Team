@@ -27,3 +27,29 @@ Profile
     - advanced_date         \\ تاريخ
     - training_position     \\ مساعد مدرب - مدرب 
     - tot_date              \\ تاريخ
+
+
+    <!--start table--> 
+                <table class="table" style="text-align:center;">
+                    <thead>
+                        <tr>
+                        <th scope="col">الدورة</th>
+                        <th scope="col">التاريخ</th>
+                        <th scope="col">مكان الدورة</th>
+                        <th scope="col">عدد الأيام</th>
+                        <th scope="col">صفة المشاركة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cors in cor %}
+                        <tr>
+                        <th scope="row">{{cors.cource}}</th>
+                        <td>{{cors.cource_date|date:"d - m - Y"}}</td>
+                        <td>{{cors.cource_place}}</td>
+                        <td>{{cors.cource_day}}</td>
+                        <td>{{cors.adj}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                 <!--end table--> 
