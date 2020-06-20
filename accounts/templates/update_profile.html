@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div class="container">
+    <div class="signup">
+
+    <div class="col-md-9" >
+        <form method="POST" enctype="multipart/form-data">
+            <h4 class="auth-header">تحديث معلوماتك الشخصية</h4>
+            {% csrf_token %}
+                <div class="form-group">
+                    {{user_form.email|as_crispy_field}}
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.name|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.name_e|as_crispy_field}}
+                        </div>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.father_name|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.mother_name|as_crispy_field}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                          {{profile_form.birth_place|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            {{profile_form.birth_date|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group ">
+                            {{profile_form.type_of_person|as_crispy_field}}  
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                          {{profile_form.branchs|as_crispy_field}} 
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            {{profile_form.sub_branch|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group ">
+                            {{profile_form.point|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group ">
+                            {{profile_form.center|as_crispy_field}}  
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{profile_form.nation_num|as_crispy_field}} 
+                </div>
+                <div class="form-group">
+                    {{profile_form.social_status|as_crispy_field}} 
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.mobile|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                           {{profile_form.phone|as_crispy_field}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                           {{profile_form.education|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.education_detail|as_crispy_field}} 
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                           {{profile_form.sarc_adjective|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          {{profile_form.position|as_crispy_field}}   
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.volunteer_date|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                           {{profile_form.employment_date|as_crispy_field}} 
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.blood_type|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.position_e|as_crispy_field}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                          {{profile_form.shoce_size|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            {{profile_form.waist_size|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group ">
+                            {{profile_form.shoulder_size|as_crispy_field}}  
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.rank_in_team|as_crispy_field}}  
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{profile_form.advanced_date|as_crispy_field}}  
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                       {{profile_form.tot_date|as_crispy_field}}      
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                       {{profile_form.image|as_crispy_field}}      
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-w"><button type="submit" class="btn btn-success">تعديل</button></div>
+            
+        </form>
+    </div>
+    </div>
+</div>
+
+
+{% endblock body %}

@@ -1,2 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div dir="rtl">
+<div class="catagory_area ">
+<div class="container " style="margin-top: 6rem">
+</div>
+</div>
 
-{{user.username}}
+<div class="job_details_area">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="job_details_header">
+                <div class="single_jobs white-bg d-flex justify-content-between">
+                    <div class="jobs_left d-flex align-items-center">
+                        <div >
+                            
+                            {% if user.profile.image %}
+                                <img src="{{user.profile.image.url}}" alt="" width="100" height="100">
+                            {% else %}
+                                <img src="{% static 'static_file/img/2.png'%}" alt="" width="100" height="100">
+                            {% endif %}
+                                
+                        </div>
+                        <div class="jobs_conetent">
+                            <a href="#" ><h4>{{user.profile.name}}</h4></a>
+                            <div class="links_locat d-flex align-items-center">
+                                <div class="location">
+                                    <p><i class="fa fa-building"></i> المركز <span style="color: blue;"> - {{user.profile.center}}</span></p>
+                                </div>
+                                <div class="location">
+                                    <p><i class="fa fa-flag"> </i><span style="color: blue;"> {{user.profile.rank_in_team}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jobs_right">
+                        <div class="apply_now">
+                            <a class="boxed-btn3" href="">تعديل </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="descript_wrap white-bg">
+                <div class="single_wrapp">
+                    <h3>الصفة الهلالية : <span style="color: blue;">{{user.profile.sarc_adjective}}</span></h3>
+                </div>
+                <div class="white-card white-card-inner">
+                    <div class="single_wrap" style="margin-top: 10px;">
+                        <br>
+                        <hr>
+                        <h4>التحصيل العلمي  </h4>
+                        <ul>
+                            <p>الشهادة العلمية : <span style="color: blue;">{{user.profile.education}}</span></p>
+                            <p>تفاصيل التحصيل العلمي : <span style="color: blue;">{{user.profile.education_detail}}</span></p>
+                        </ul>
+                        <hr>
+                        <h4>معلومات خاصة بالتطوع </h4>
+                        <ul>
+                            <p>تاريخ التطوع : <span style="color: blue;">{{user.profile.volunteer_date|date:"d - m - Y"}}</span></p>
+                            <p>الفرع : <span style="color: blue;">{{user.profile.branch}}</span></p>
+                            <p>الشعبة الهلالية : <span style="color: blue;">{{user.profile.sub_branch}}</span></p>
+                            {% if user.profile.point %}
+                            <p>النقطة الهلالية : <span style="color: blue;">{{user.profile.point}}</span></p>
+                            {% else %}
+                            <p><del>النقطة الهلالية : <span style="color: blue;"></span></p>
+                            {% endif %}
+                        </ul>
+                        <hr>
+                        <h4>معلومات خاصة بالموظف </h4>
+                        {% if user.profile.sarc_adjective == "موظف" %}
+                        <ul>
+                            <p>المنصب باللغة العريية : <span style="color: blue;">{{user.profile.position}}</span></p>
+                            <p>المنصب باللغة الانكليزية : <span style="color: blue;">{{user.profile.position_e}}</span></p>
+                            <p>تاريح التوظيف : <span style="color: blue;">{{user.profile.employment_date|date:"d - m - Y"}}</span></p>
+                        </ul>
+                        {% else %}
+                        <ul>
+                            <p><del>المنصب باللغة العريية : <span style="color: blue;"></span></p>
+                            <p><del>المنصب باللغة الانكليزية : <span style="color: blue;"></span></p>
+                            <p><del>تاريح التوظيف : <span style="color: blue;"></span></p>
+                        </ul>
+                        {% endif %}
+                        <hr>
+                        <h4>معلومات خاصة بالإسعاف </h4>
+                        <ul>
+                            <p>تاريخ دورة المتقدم : <span style="color: blue;">{{user.profile.advanced_date|date:"d - m - Y"}}</span></p>
+                            <p>الرتبة : <span style="color: blue;">{{user.profile.rank_in_team}}</span></p>
+                            <p>قياس الحذاء : <span style="color: blue;">{{user.profile.shoce_size}}</span></p>
+                            <p>قياس الخصر : <span style="color: blue;">{{user.profile.waist_size}}</span></p>
+                            <p>قياس الكتفين : <span style="color: blue;">{{user.profile.shoulder_size}}</span></p>
+                            {% if user.profile.training_postion %}
+                            <p>الصفة بالتدريب : <span style="color: blue;">{{user.profile.training_postion}}</span></p>
+                            <p>تاريخ دورة إعداد المدربين : <span style="color: blue;">{{user.profile.tot_date|date:"d - m - Y"}}</span></p>
+                            {% else %}
+                            <p><del>الصفة بالتدريب : <span style="color: blue;"></span></p>
+                            <p><del>تاريخ دورة إعداد المدربين : <span style="color: blue;"></span></p>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="col-lg-4">
+            <div class="job_sumary">
+                <div class="summery_header">
+                    <h3>المعلومات الشخصية</h3>
+                </div>
+                <div class="job_content">
+                    <ul> 
+                        <li> اسم الأب &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span style="color: blue;">{{user.profile.father_name}}</span></li>
+                        <li> اسم الأم &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<span style="color: blue;">{{user.profile.mother_name}}</span></li>
+                        <li> مكان الولادة : <span style="color: blue;">{{user.profile.birth_place}}</span></li>
+                        <li> تاريخ الولادة &nbsp;: <span style="color: blue;">{{user.profile.birth_date|date:"d - m - Y"}}</span></li>
+                        <li> الرقم الوطني : <span style="color: blue;">{{user.profile.nation_num}}</span></li>
+                        <li> الحالة الاجتماعية : <span style="color: blue;">{{user.profile.social_status}}</span></li>
+                        <li><i class="fa fa-heartbeat"></i><span style="color: blue;">&nbsp;&nbsp;{{user.profile.blood_type}}</span></li>
+                        <li><i class="fa fa-intersex"></i><span style="color: blue;">&nbsp;&nbsp;{{user.profile.type_of_person}}</span></li>
+                        <li><i class="fa fa-mobile-phone"></i><span style="color: blue;">&nbsp;&nbsp;&nbsp;{{user.profile.mobile}}</span></li>
+                        <li><i class="fa fa-phone"></i><span style="color: blue;">&nbsp;&nbsp;{{user.profile.phone}}</span></li>
+                        <li><i class="fa fa-envelope"></i><span style="color: blue;">&nbsp;&nbsp;{{user.email}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock body %}
